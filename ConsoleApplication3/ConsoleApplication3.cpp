@@ -99,12 +99,10 @@ public:
        const char* result = strchr(s, ch);  
        if (result) {  
            int position = result - s + 1;  
-           cout << "Ожидаемая позиция: " << position << "-й символ" << endl;  
-       } else {  
-           cout << "Ожидаемая позиция: символ не найден" << endl;  
-       }  
-       cout << "Фактический результат: \"" << (result ? result : "nullptr") << "\"" << endl << endl;  
-   }  
+           cout << "Ожидаемая позиция: " << position << "-й символ" << endl << endl;
+       }
+       else cout << "Ожидаемая позиция: символ не найден" << endl << endl;
+   }
 };
 
 class Strrchr {  
@@ -117,25 +115,26 @@ public:
        const char* result = strrchr(s, ch);  
        if (result) {  
            int position = result - s + 1;  
-           cout << "Ожидаемая позиция: " << position << "-й символ" << endl;  
-       } else {  
-           cout << "Ожидаемая позиция: символ не найден" << endl;  
-       }  
-       cout << "Фактический результат: \"" << (result ? result : "nullptr") << "\"" << endl << endl;  
-   }  
+           cout << "Фактический результат: " << position << "-й символ" << endl << endl;
+       }
+       else cout << "Фактический результат: символ не найден" << endl << endl;
+   }
 };
 
-class Strpbrk {
-public:
-    void run() {
-        cout << "=== Тест strpbrk() ===" << endl;
-        const char* s = "hello world";
-        const char* chars = "aeiou";
-        cout << "Строка: \"" << s << "\", символы для поиска: \"" << chars << "\"" << endl;
-        cout << "Ожидаемый результат: ' ' в позиции 1" << endl;//ERROR fix id
-        const char* result = strpbrk(s, chars);
-        cout << "Фактический результат: \"" << (result ? result : "nullptr") << "\"" << endl << endl;
-    }
+class Strpbrk {  
+public:  
+   void run() {  
+       cout << "=== Тест strpbrk() ===" << endl;  
+       const char* s = "hello world";  
+       const char* chars = "aeiou";  
+       cout << "Строка: \"" << s << "\", символы для поиска: \"" << chars << "\"" << endl;  
+       const char* result = strpbrk(s, chars);  
+       if (result) {
+           int position = result - s + 1;
+           cout << "Фактический результат:: символ '" << *result << "' в позиции " << position << endl << endl;
+       }
+       else cout << "Фактический результат:: символ не найден" << endl << endl;
+   }  
 };
 
 class Strstr {
